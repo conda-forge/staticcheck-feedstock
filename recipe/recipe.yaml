@@ -1,12 +1,14 @@
-{% set name = "staticcheck" %}
-{% set version = "2025.1.1" %}
+schema_version: 1
+
+context:
+  version: 2025.1.1
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: staticcheck
+  version: ${{ version }}
 
 source:
-  url: https://github.com/dominikh/go-tools/archive/{{ version }}.tar.gz
+  url: https://github.com/dominikh/go-tools/archive/${{ version }}.tar.gz
   sha256: 259aaf528e4d98e7d3652e283e8551cfdb98cd033a7c01003cd377c2444dd6de
 
 build:
@@ -14,21 +16,21 @@ build:
 
 requirements:
   build:
-    - {{ compiler('go-nocgo') }}
+    - ${{ compiler('go-nocgo') }}
     - go-licenses
 
-test:
-  commands:
-    - {{ name }} --help
+tests:
+  - script:
+      - staticcheck --help
 
 about:
-  home: https://staticcheck.io/
   license: MIT
   license_file:
     - LICENSE
     - license-files/
   summary: State of the art linter for the Go programming language
-  dev_url: https://github.com/dominikh/go-tools
+  homepage: https://staticcheck.io/
+  repository: https://github.com/dominikh/go-tools
 
 extra:
   recipe-maintainers:
