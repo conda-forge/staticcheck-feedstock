@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: 2025.1.1
+  version: "2026.1"
 
 package:
   name: staticcheck
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/dominikh/go-tools/archive/${{ version }}.tar.gz
-  sha256: 259aaf528e4d98e7d3652e283e8551cfdb98cd033a7c01003cd377c2444dd6de
+  sha256: 4b20d65194e5462264c784f2968de65fcd7aba8e9efa37aa9b1fadc13b29699b
 
 build:
   number: 0
